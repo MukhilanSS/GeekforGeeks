@@ -35,27 +35,18 @@ class Solution
     public int[] common_digits(int[] nums)
     {
         // code here
-        int temp=Integer.MIN_VALUE;
-        Set<Integer>res=new HashSet<Integer>();
+        Set<Integer>s=new HashSet<>();
         for(int i:nums)
         {
-            int n=i,rev=0;
-            while(n!=0)
+            while(i!=0)
             {
-                int r=n%10;
-                rev=rev*10+r;
-                n/=10;
-                if(temp!=r)
-                {
-                    temp=r;
-                    res.add(temp);
-                }
-                
+                s.add(i%10);
+                i/=10;
             }
         }
         int k=0;
-        int ans[]=new int[res.size()];
-        for(int i:res)
+        int ans[]=new int[s.size()];
+        for(int i:s)
         ans[k++]=i;
         return ans;
     }
